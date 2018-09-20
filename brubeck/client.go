@@ -84,7 +84,7 @@ func (c *Client) formatStat(stat string, format string, value interface{}, timed
 }
 
 func (c *Client) send(stat string, format string, value interface{}, timed bool) {
-	if c.disabled {
+	if c.disabled || c.nc == nil {
 		return
 	}
 
